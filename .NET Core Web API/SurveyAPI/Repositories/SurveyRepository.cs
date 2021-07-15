@@ -78,10 +78,6 @@ namespace SurveyAPI.Repositories
                 .ThenInclude(qa => qa.QuestionOfferedAnswerRelations)
 				.Where(a => a.Survey.Id == surveyId)
 				.ToList();
-            var test = _context.QuestionOfferedAnswerRelations
-                .Include(a => a.OfferedAnswer)
-                .Include(a => a.Question)
-                .ToList();
 
 			SurveyResultDto survey = new SurveyResultDto();
             List<AnsweredQuestion> answeredList = new List<AnsweredQuestion>();
